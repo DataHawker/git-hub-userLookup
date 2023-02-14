@@ -9,8 +9,11 @@ type Props = {
 const User = ({ src, username }: Props) => {
   return (
     <View className="flex flex-row items-center space-x-5 m-5">
-      <Image source={{ uri: src }} className=" w-10 h-10 rounded-full " />
-      <Text className="text-lg text-gray-200 font-bold">{username}</Text>
+      <Image
+        source={{ uri: src }}
+        className=" w-16 h-16 rounded-full border border-amber-500"
+      />
+      <Text className="text-3xl text-gray-200 font-bold">{username}</Text>
     </View>
   );
 };

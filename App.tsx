@@ -28,7 +28,7 @@ export default function App() {
       });
   }, []);
   return (
-    <SafeAreaView className="bg-black flex-1">
+    <SafeAreaView className="bg-gray-500 flex-1">
       <ScrollView keyboardShouldPersistTaps="handled" className="h-screen px-2">
         <SearchBox onSearch={search} />
         {data && <User src={data.avatar_url} username={data.login} />}

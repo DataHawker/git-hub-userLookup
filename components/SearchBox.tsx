@@ -14,7 +14,7 @@ const SearchBox = ({ onSearch }: Props) => {
           placeholder="Find User..."
           onChangeText={(text) => setUsername(text)}
           placeholderTextColor="#f0f0f088"
-          className="text-xl text-white p-2 ml-2"
+          className="text-2xl text-white p-2 ml-2"
         />
       </View>
       <Pressable

@@ -21,7 +21,9 @@ const Card = ({
       {...other}
     >
       <View>
-        <Text className="text-gray-50 font-semibold text-center">{number}</Text>
+        <Text className="text-gray-50 text-2xl font-semibold text-center">
+          {number}
+        </Text>
         <Text className="text-gray-400 font-bold mt-4 text-center">{text}</Text>
       </View>
     </View>
@@ -30,11 +32,11 @@ const Card = ({
 
 const CardList = ({ data }: Props) => {
   return (
-    <View className="flex flex-row gap-5 flex-wrap m-5">
+    <View className="flex flex-row gap-5 flex-wrap items-center justify-center mt-5">
       <Card
         text="Public repos"
         number={data.public_repos}
-        className="bg-black"
+        className="bg-black justify-center"
       />
       <Card text="Following" number={data.following} className="bg-black" />
       <Card text="Followers" number={data.followers} className="bg-black" />

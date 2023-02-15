@@ -30,8 +30,12 @@ export default function App() {
       });
   }, []);
   return (
-    <SafeAreaView className="bg-gray-500 flex-1">
-      <ScrollView keyboardShouldPersistTaps="handled" className="h-screen px-2">
+    <View className="h-screen bg-gray-500">
+      <View className="sticky top-0 left-0 h-10 w-full backdrop-blur-sm bg-gray-500"></View>
+      <ScrollView
+        keyboardShouldPersistTaps="handled"
+        className=" px-5 pt-10  flex-2"
+      >
         <SearchBox onSearch={search} />
         {data && (
           <>
@@ -40,6 +44,6 @@ export default function App() {
           </>
         )}
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }

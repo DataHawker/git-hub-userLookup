@@ -1,15 +1,17 @@
 import { StatusBar } from "expo-status-bar";
 import { useState, useCallback } from "react";
 import { SafeAreaView, ScrollView, Text, View } from "react-native";
+import CardList from "./components/CardList";
 import SearchBox from "./components/SearchBox";
 import User from "./components/User";
 
-type Data = {
+export type Data = {
   avatar_url: string;
-  folowers: number | string;
+  followers: number | string;
   following: number | string;
   login: string;
   public_repos: number | string;
+  created_at: string | number;
 };
 
 export default function App() {
@@ -31,7 +33,12 @@ export default function App() {
     <SafeAreaView className="bg-gray-500 flex-1">
       <ScrollView keyboardShouldPersistTaps="handled" className="h-screen px-2">
         <SearchBox onSearch={search} />
-        {data && <User src={data.avatar_url} username={data.login} />}
+        {data && (
+          <>
+            <User src={data.avatar_url} username={data.login} />
+            <CardList data={data} />
+          </>
+        )}
       </ScrollView>
     </SafeAreaView>
   );

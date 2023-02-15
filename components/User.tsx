@@ -11,9 +11,9 @@ const User = ({ src, username }: Props) => {
     <View className="flex flex-row items-center space-x-5 m-5">
       <Image
         source={{ uri: src }}
-        className=" w-16 h-16 rounded-full border border-amber-500"
+        className=" w-16 h-16 rounded-full border border-white"
       />
-      <Text className="text-3xl text-gray-200 font-bold">{username}</Text>
+      <Text className="text-3xl text-white font-bold">{username}</Text>
     </View>
   );
 };

@@ -10,8 +10,8 @@ const SearchBox = ({ onSearch }: Props) => {
   const [username, setUsername] = useState("");
 
   return (
-    <View className="flex flex-row space-x-4 mt-4 p-2 justify-center py-3">
-      <View className="border border-white w-2/3  rounded-md bg-gray-800 flex justify-center pl-4 pb-1.5">
+    <View className="flex flex-row space-x-4 mt-4 mb-4 p-1 justify-center py-3">
+      <View className=" shadow-lg w-2/3  rounded-md bg-black opacity-50 flex justify-center pl-4 pb-1.5">
         <TextInput
           placeholder="Find User..."
           placeholderTextColor="#f0f0f088"

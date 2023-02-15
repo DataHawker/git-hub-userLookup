@@ -11,7 +11,6 @@ export type Data = {
   login: string;
   public_repos: number | string;
   created_at: string;
-  name: string;
 };
 
 export default function App() {
@@ -30,8 +29,8 @@ export default function App() {
       });
   }, []);
   return (
-    <View className="h-screen bg-gray-300">
-      <View className="sticky top-0 left-0 h-11 w-full backdrop-blur-sm bg-gray-300 shadow-md"></View>
+    <View className="h-screen bg-gray-800">
+      <View className="sticky top-0 left-0 h-11 w-full backdrop-blur-sm bg-gray-800"></View>
       <ScrollView
         keyboardShouldPersistTaps="handled"
         className=" px-5 pt-10  flex-2"
@@ -44,7 +43,7 @@ export default function App() {
           </>
         )}
       </ScrollView>
-      <View className="sticky bottom-0 left-0 h-2 w-full backdrop-blur-sm bg-gray-300"></View>
+      <View className="sticky bottom-0 left-0 h-2 w-full backdrop-blur-sm bg-gray-800"></View>
     </View>
   );
 }

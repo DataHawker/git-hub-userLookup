@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import React, { useState } from "react";
 import { Data } from "../App";
 
@@ -21,7 +21,10 @@ const Card = ({
 }) => {
   return (
     <View className="flex rounded-md w-36 h-36" {...other}>
-      <View className="items-center relative w-36 h-36">
+      <View
+        className="items-center relative w-36 h-36 bg-black"
+        style={styles.shadow}
+      >
         <Text className="text-gray-50 text-3xl font-semibold absolute top-10 center-0">
           {number}
         </Text>
@@ -67,3 +70,17 @@ const CardList = ({ data }: Props) => {
 };
 
 export default CardList;
+
+const styles = StyleSheet.create({
+  shadow: {
+    shadowColor: "rgb(64, 103, 162)",
+    shadowOffset: {
+      width: 4,
+      height: 8,
+    },
+    shadowOpacity: 0.34,
+    shadowRadius: 5.32,
+
+    elevation: 10,
+  },
+});

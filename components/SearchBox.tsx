@@ -1,4 +1,4 @@
-import { View, Text, TextInput, Pressable } from "react-native";
+import { StyleSheet, View, Text, TextInput, Pressable } from "react-native";
 import React, { useState } from "react";
 import * as Haptics from "expo-haptics";
 
@@ -10,38 +10,78 @@ const SearchBox = ({ onSearch }: Props) => {
   const [username, setUsername] = useState("");
 
   return (
-    <View className="flex flex-row space-x-4 mt-4 mb-4 p-1 justify-center py-3">
-      <View className=" shadow-lg w-2/3  rounded-md bg-black opacity-50 flex justify-center pl-4 pb-1.5">
-        <TextInput
-          placeholder="Find User..."
-          placeholderTextColor="#f0f0f088"
-          autoCapitalize="words"
-          autoCorrect={false}
-          returnKeyType="search"
-          onSubmitEditing={() =>
-            Haptics.notificationAsync(
-              Haptics.NotificationFeedbackType.Success
-            ).then(() => onSearch(username))
-          }
-          className="text-2xl text-white"
-          onChangeText={(text) => setUsername(text)}
-        />
-      </View>
-      <View className="relative font-thin text-xl">
-        <View className="absolute inset-x-0  rounded-lg"></View>
-        <Pressable
-          className="relative bg-blue-500 border border-white rounded-lg py-3 px-7"
-          onPress={() =>
-            Haptics.notificationAsync(
-              Haptics.NotificationFeedbackType.Success
-            ).then(() => onSearch(username))
-          }
+    <>
+      <View>
+        <Text
+          className="bg-gray-900 p-3 shadow-md rounded-md font-bold text-gray-200 text-center text-3xl "
+          style={styles.shadow}
         >
-          <Text className="text-gray-100 text-xl font-thin">Search</Text>
-        </Pressable>
+          Enter GitHub Username
+        </Text>
       </View>
-    </View>
+      <View className="flex flex-row space-x-4 mt-4 mb-4 p-1 justify-center py-3">
+        <View
+          className=" shadow w-2/3 rounded-md bg-black opacity-50 flex justify-center pl-4 pb-1.5"
+          style={styles.shadow}
+        >
+          <TextInput
+            placeholder="Find User..."
+            placeholderTextColor="#ffffff87"
+            autoCapitalize="words"
+            autoCorrect={false}
+            returnKeyType="search"
+            onSubmitEditing={() =>
+              Haptics.notificationAsync(
+                Haptics.NotificationFeedbackType.Success
+              ).then(() => onSearch(username))
+            }
+            className="text-2xl text-white"
+            onChangeText={(text) => setUsername(text)}
+          />
+        </View>
+        <View className="relative font-thin text-xl">
+          <View className="absolute inset-x-0  rounded-lg"></View>
+          <Pressable
+            className="relative bg-blue-500 rounded-lg py-3 px-7"
+            style={styles.shadow1}
+            onPress={() =>
+              Haptics.notificationAsync(
+                Haptics.NotificationFeedbackType.Success
+              ).then(() => onSearch(username))
+            }
+          >
+            <Text className="text-gray-100 text-xl">Search</Text>
+          </Pressable>
+        </View>
+      </View>
+    </>
   );
 };
 
 export default SearchBox;
+
+const styles = StyleSheet.create({
+  shadow: {
+    shadowColor: "#4067a2",
+    shadowOffset: {
+      width: 4,
+      height: 10,
+    },
+    shadowOpacity: 0.14,
+    shadowRadius: 5.32,
+
+    elevation: 16,
+  },
+
+  shadow1: {
+    shadowColor: "#0b052f",
+    shadowOffset: {
+      width: 4,
+      height: 10,
+    },
+    shadowOpacity: 0.14,
+    shadowRadius: 6.32,
+
+    elevation: 16,
+  },
+});

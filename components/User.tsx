@@ -4,10 +4,9 @@ import React from "react";
 type Props = {
   src: string;
   username: string;
-  name: string;
 };
 
-const User = ({ src, username, name }: Props) => {
+const User = ({ src, username }: Props) => {
   return (
     <View className="flex flex-row items-center space-x-4 m-3 mb-5">
       <Image
@@ -15,7 +14,7 @@ const User = ({ src, username, name }: Props) => {
         className=" w-20 h-20 rounded-full border border-white"
       />
       <View className="flex-col">
-        <Text className="text-2xl text-gray-500 font-bold">{username}</Text>
+        <Text className="text-2xl text-gray-200 font-bold">{username}</Text>
       </View>
     </View>
   );

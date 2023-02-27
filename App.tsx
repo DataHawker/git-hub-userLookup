@@ -1,5 +1,10 @@
 import { useState, useCallback } from "react";
-import { ScrollView, View } from "react-native";
+import {
+  ScrollView,
+  View,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import CardList from "./components/CardList";
 import SearchBox from "./components/SearchBox";
 import User from "./components/User";

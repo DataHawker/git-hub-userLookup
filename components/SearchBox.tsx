@@ -1,4 +1,11 @@
-import { StyleSheet, View, Text, TextInput, Pressable } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  Pressable,
+  Keyboard,
+} from "react-native";
 import React, { useState } from "react";
 import * as Haptics from "expo-haptics";
 
@@ -19,14 +26,17 @@ const SearchBox = ({ onSearch }: Props) => {
           Enter GitHub Username
         </Text>
       </View>
-      <View className="flex flex-row space-x-4 mt-4 mb-4 p-1 justify-center py-3">
+      <View
+        className="flex flex-row space-x-4 mt-4 mb-4 p-1 justify-center py-3"
+        style={styles.shadow}
+      >
         <View
-          className=" shadow w-2/3 rounded-md bg-black opacity-50 flex justify-center pl-4 pb-1.5"
+          className=" shadow w-2/3 rounded-md bg-slate-600  flex justify-center pl-4 pb-1.5"
           style={styles.shadow}
         >
           <TextInput
             placeholder="Find User..."
-            placeholderTextColor="#ffffff87"
+            placeholderTextColor="#9c9c9c"
             autoCapitalize="words"
             autoCorrect={false}
             returnKeyType="search"
@@ -43,14 +53,19 @@ const SearchBox = ({ onSearch }: Props) => {
           <View className="absolute inset-x-0  rounded-lg"></View>
           <Pressable
             className="relative bg-blue-500 rounded-lg py-3 px-7"
-            style={styles.shadow1}
+            style={styles.shadow}
             onPress={() =>
               Haptics.notificationAsync(
                 Haptics.NotificationFeedbackType.Success
-              ).then(() => onSearch(username))
+              )
+                .then(() => onSearch(username))
+                .then(() => Keyboard.dismiss())
+                .then(() => setUsername("placeholder"))
             }
           >
-            <Text className="text-gray-100 text-xl">Search</Text>
+            <Text className="text-gray-100 text-xl" style={styles.shadow}>
+              Search
+            </Text>
           </Pressable>
         </View>
       </View>
@@ -69,18 +84,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.14,
     shadowRadius: 5.32,
-
-    elevation: 16,
-  },
-
-  shadow1: {
-    shadowColor: "#0b052f",
-    shadowOffset: {
-      width: 4,
-      height: 10,
-    },
-    shadowOpacity: 0.14,
-    shadowRadius: 6.32,
 
     elevation: 16,
   },

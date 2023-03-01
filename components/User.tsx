@@ -16,7 +16,7 @@ const User = ({ src, username }: Props) => {
         />
       </View>
       <View className="flex-col">
-        <Text className="text-2xl text-gray-200 font-bold">{username}</Text>
+        <Text className="text-2xl text-gray-300 font-bold">{username}</Text>
       </View>
     </View>
   );
